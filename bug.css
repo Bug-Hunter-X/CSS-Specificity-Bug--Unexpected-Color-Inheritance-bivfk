@@ -1,0 +1,15 @@
+The following CSS code snippet causes unexpected behavior in some browsers due to specificity issues:
+
+```css
+div p {
+  color: blue;
+}
+
+p {
+  color: red;
+}
+```
+
+The intended behavior is for all paragraphs within a div to be blue, and all other paragraphs to be red. However, due to the specificity of the first selector (div p), some browsers may apply the blue color even to paragraphs nested deeper within the div, overriding the more general rule.
+
+This is an uncommon bug because it's not an error in the code's syntax or semantics, but rather a subtle consequence of how CSS specificity works.
