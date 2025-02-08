@@ -1,0 +1,35 @@
+To solve this, increase the specificity of the selector targeting paragraphs outside the div.  One way to do this is to add an extra class to those paragraphs. 
+
+```css
+div p {
+  color: blue;
+}
+
+.other p {
+  color: red;
+}
+```
+
+In your HTML, apply the class 'other' to paragraphs not nested within a div:
+
+```html
+<div>
+  <p>This paragraph should be blue.</p>
+  <div>
+    <p>This paragraph should be blue (due to inheritance).</p>
+  </div>
+</div>
+<p class="other">This paragraph should be red.</p>
+```
+
+Alternatively, you can use the `!important` flag, but this is generally discouraged due to potential maintainability issues:
+
+```css
+div p {
+  color: blue;
+}
+
+p {
+  color: red !important;
+}
+```
